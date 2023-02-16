@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memes App</title>
+    <style>
+        body
+        {
+            width: 97vw;
+            height: 90vh;
+            background-color: black;
+        }
+        .container
+        {
+         padding:15px;
+        }
+        .title
+        {
+            font-size: 5rem;
+            color:#851bbb;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 1000;
+            padding: 15px;
+            margin: 50px;
+        }
+     #meme-box{
+        display: flex;
+        justify-content: center;
+     }
+     #btns{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 50px;
+     }
+     button{
+        width: fit-content;
+        height:fit-content;
+        border-radius: 60px;
+        padding: 20px 50px;
+        font-size: 1.5rem;
+        background-color: rgb(177 45 225);
+        color:white;
+     }
+     a{
+        color:white;
+        text-decoration: none;
+     }
+    </style>
+</head>
+<body>
+    <div class="title">
+        Random Memes Generator
+    </div>
+    <div class="container">
+        <div id="btns">
+            <button onclick="get()">Next</button>
+            <button><a href="" id="dwld" download>Download</a></button>
+        </div>
+        <div id="meme-box">
+            <img src="https://preview.redd.it/7tzqm67aelia1.gif?width=320&crop=smart&format=png8&v=enabled&s=d9d3dbfdbc07d815ad4f42d9341cf87a28990794" alt="" id="meme">
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        function get(){
+            async function getMemes(){
+            let response=await fetch('https://meme-api.com/gimme')
+            let data=await response.json()
+            return data;
+        }
+        getMemes().then(data=>{
+            console.log(data["preview"][2])
+            document.getElementById("meme").src=`${data["preview"][2]}`
+            document.getElementById("dwld").href=`${data["preview"][2]}`
+          })
+        }
+    </script>
+</body>
+</html>
