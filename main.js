@@ -5,7 +5,7 @@ function get(){
     return data;
 }
 getMemes().then(data=>{
-    console.log(data["preview"][2])
+    // console.log(data);
     document.getElementById("meme").src=`${data["preview"][2]}`
     document.getElementById("dwld").href=`${data["preview"][2]}`
   })

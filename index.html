@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memes App</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="main.js">
 </head>
-<body>
+<body onload="get()">
     <div class="title">
         Random Memes Generator
     </div>
     <div class="container">
         <div id="btns">
             <button><a href="" id="dwld" download>Download</a></button>
-            <button onclick="get()">Get Meme</button>
+            <button id="get_memes" onclick="get()">Next Meme</button>
         </div>
         <div id="meme-box">
             <img src="" alt="" id="meme">
@@ -23,5 +22,6 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
